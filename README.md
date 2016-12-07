@@ -3,8 +3,8 @@ PHP Reverse Proxy PRP
 
 # Example： 
 
-·
-if (!@include __DIR__ . '/proxy/ProxyHandler.class.php') {
+
+`if (!@include __DIR__ . '/proxy/ProxyHandler.class.php') {
     die('Could not load proxy');
 }
 
@@ -17,5 +17,4 @@ if ($proxy->execute()) {
     echo $proxy->getCurlError();
 }
 
-$proxy->close();
-·
+$proxy->close();`
