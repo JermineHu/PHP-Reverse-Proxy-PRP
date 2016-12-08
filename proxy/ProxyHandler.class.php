@@ -158,8 +158,18 @@ class ProxyHandler
                     }
                     $this->setCurlOption(CURLOPT_POSTFIELDS, $data);
                     break;
+                 case 'OPTIONS': 
+                 header('Access-Control-Allow-Origin: *');
+                 header("Access-Control-Allow-Headers:Origin, No-Cache, X-Requested-With, If-Modified-Since, Pragma, Last-Modified, Cache-Control, Expires, Content-Type, X-E4M-With,Authentication-Token, *");
+                 header('HTTP/1.1 200 OK'); 
+                 header("status:200"); 
+
+                exit();
+                break;
                     
                 case 'PUT':
+                case 'DELETE':
+              
                     // Set the request method.
                     $this->setCurlOption(CURLOPT_UPLOAD, 1);
                     // PUT data comes in on the stdin stream.
@@ -241,6 +251,8 @@ class ProxyHandler
         $xForwardedFor[] = $_SERVER['REMOTE_ADDR'];
         $this->setClientHeader('X-Forwarded-For', implode(',', $xForwardedFor));
         $this->setClientHeader('X-Real-IP', $xForwardedFor[0]);
+    $this->setClientHeader('Access-Control-Allow-Origin',"*");
+     $this->setClientHeader('AAccess-Control-Allow-Headers',"Origin, No-Cache, X-Requested-With, If-Modified-Since, Pragma, Last-Modified, Cache-Control, Expires, Content-Type, X-E4M-With,Authentication-Token, *");
     }
 
     /**
