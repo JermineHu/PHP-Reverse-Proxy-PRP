@@ -1,0 +1,9 @@
+RewriteEngine On
+#Header set Access-Control-Allow-Origin "*"
+#Header set Access-Control-Allow-Methods "POST, GET, OPTIONS, PUT, DELETE"
+#Header set Access-Control-Allow-Headers "Origin, No-Cache, X-Requested-With, If-Modified-Since, Pragma, Last-Modified, Cache-Control, Expires, Content-Type, X-E4M-With,Authentication-Token, *"
+RewriteCond %{REQUEST_FILENAME} !-l [NC]
+RewriteCond %{REQUEST_FILENAME} !-f [NC]
+RewriteCond %{REQUEST_FILENAME} !-d [NC]
+RewriteCond %{REQUEST_URI} !^/index.php
+RewriteRule ^(.+)$ index.php/$1 [QSA]
