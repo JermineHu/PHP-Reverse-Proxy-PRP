@@ -1,5 +1,5 @@
 # PHP-Reverse-Proxy-PRP
-PHP Reverse Proxy PRP
+PHP Reverse Proxy PRP suport that cross domain
 
 # Example： 
 
